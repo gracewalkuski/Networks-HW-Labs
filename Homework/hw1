@@ -1,0 +1,56 @@
+1. Why are Internet standards important?
+------------------
+Internet standards are important because they guide how information is transmitted and conveyed. It dictates the length of bits (example in class, where 4 bits were sent but the router was looking for 6). It helps ensure information isn't mis-delivered or lost. It ensures consistency and continuity across the internet, so that information from one source can be guaranteed to be compatible with another source.
+
+
+2. What are the five layers of the Internet protocol stack discussed in class? 
+   What are the principal responsibilities for each of these layers?
+------------------
+Layer 1: Physical layer. Responsible for actually transmitting the information as symbols.
+Layer 2: Data Link layer. Responsible for medium access as well as reliability.
+Layer 3: Network layer. Responsible for addressing and routing packets.
+Layer 4: Transport layer. Responsible for end-to-end communication and chopping packets up.
+Layer 7: Application layer. Responsible for providing the message/data to be sent.
+
+
+3. Skype allows calls between PCs and phones. Describe the elements of the path that might connect such end-hosts.
+------------------
+the PC and the Phone would be two end-user nodes. Each would be connected to a router, and from there the router would communicate with other routers to reach it's destination (from Computer to phone). This channel would be reserved (circuit-switched vs packet-switched) because the communication will last for a finite amount of time and requires a certain amount of bandwidth, which circuit-switching provides and packet switching cannot.
+
+
+4. Consider an application that transmits data at a steady rate (for example, the sender generates an N-bit unit of data every k time units, where k is small and fixed). Also, when such an application starts, it will continue running for a relatively long period of time. Would a packet-switched network or a circuit-switched network be more appropriate for this application? Why?
+------------------
+Because it's transmitting data at a steady rate and running for a long time, I would assume a circuit-switched network would be the optimal choice. This is because circuit switching allows for lower end-to-end delay, which is optimal for a steady data stream. A packet-switched network could result in data loss and is more effective for bursty data, and continuous streams of data probably aren't considered "bursty".
+
+5. In this problem, we consider sending real-time voice from Host A to Host B over a packet-switched network (VoIP). Host A converts analog voice to a digital 64 kbps bit stream on the fly. Host A then groups the bits into 56-byte packets. There is one link between Hosts A and B; its transmission rate is 2 Mbps and its propagation delay is 10 msec. As soon as Host A gathers a packet, it sends it to Host B. As soon as Host B receives an entire packet, it converts the packet's bits to an analog signal. How much time elapses from the time a bit is created (from the original analog signal at Host A) until the bit is decoded and played back as part of the analog signal at Host B?
+------------------
+(56*8)/(64*10^3) = .007 *1000 = 7 msec
+(56*8)*1000/(64*10^6) = .007 msec
+
+7 msec to generate + .007 msec to transmit + 10 msec delay = 17.007 msec delay.
+
+
+6. Suppose there are M disjoint paths between client and server.
+Path k∈[1,M] consists of N links with capacities rk1,rk2,…,rkN
+What is the achievable download rate (formula) if the client can.
+
+A. Use one path at a time?
+B. Use K paths in parallel?
+------------------
+A. min(r^k_1...r^k_n)
+
+B. min(r^k_1...r^k_n)/M
+
+
+7. Consider a path of L links each with loss probability p due to interference.
+
+A. What is the probability that a packet transmitted by the client does not reach the server?
+B. Assume that a client sends a message segmented into four packets. What is the probability the message will get through to the server without any retransmissions?
+------------------
+A. probability = 1 - (p_1 * p_2 * ... * p_L)
+
+B. probability = 1- 4(p_1 * p_2 * ... * p_L)
+
+A. probability = (1-p)p^L
+
+B. probability = 4(1-p)p^L

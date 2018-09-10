@@ -1,11 +1,16 @@
 Question 1
 ----------
+TCP, TLS v1.2, HTTP
 
 Question 2
 ----------
+0.122 Seconds
 
 Question 3
 ----------
+Server IP: 128.119.245.12
+Me: 192.168.1.5
 
 Question 4
 ----------
+Printed and saved.
