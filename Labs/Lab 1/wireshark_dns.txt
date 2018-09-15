@@ -1,16 +1,19 @@
+*** We had to use the provided packet traces for most of the questions
 Question 1
 ----------
 www.aiit.or.kr: 58.229.6.225
 
 Question 2
 ----------
-www.tum.de: 129.187.255.228
-Authoritative: dnszi.com
-ns1.dnszi.com IP: 115.71.240.4
+nslookup -type=NS tu-berlin.de
+	Authoritative answers can be found from:
+	ns.tu-berlin.de	has AAAA address 2001:638:809:7::7
+	ns.tu-berlin.de	internet address = 130.149.7.7
 
 Question 3
 ----------
 ** server can't find mail.yahoo.com: REFUSED
+Neihter of the servers would answer a query about yahoo mail.
 
 Question 4
 ----------
@@ -18,54 +21,124 @@ They're sent over TCP.
 
 Question 5
 ----------
-The destination port is 80, the source port is 55617.
+The destination port is 80, the source port is 65258.
 The response source port is port 80.
 
 Question 6
 ----------
-The ietf.org IP Address is 104.20.1.85. 
-Local DNS Server: 104.198.110.115
+The ietf.org IP Address is 104.20.1.85.
+Local DNS Server: 178.216.201.222
 They are not the same IP address.
 
 Question 7
 ----------
+It is a type A query, and it does not appear to contain any special messages
 
 Question 8
 ----------
+The response provides two answers:
+www.ietf.org: type A, class IN, addr 132.151.6.75
+	Name: www.ietf.org
+	Type: A (Host Address) (1)
+	Class: IN (0x0001)
+	Time to live: 1678
+	Data length: 4
+	Address: 132.151.6.75
+www.ietf.org: type A, class IN, addr 65.246.255.51
+    Name: www.ietf.org
+    Type: A (Host Address) (1)
+    Class: IN (0x0001)
+    Time to live: 1678
+    Data length: 4
+    Address: 65.246.255.51
 
 Question 9
 ----------
+Yes, the SYN packet destination is 132.151.6.75 which corresponds to the
+address of www.ietf.org in the first response 'answer'.
 
 Question 10
 -----------
+It does not issue a new request for each image.
 
 Question 11
 -----------
+Destination Port is 53, and the source port is 3742.
 
 Question 12
 -----------
+It's being sent to 128.238.29.22, which is NOT my local DNS server.
+Since I used the packet traces provided, that makes sense.
 
 Question 13
 -----------
+It is a type A request, and there are no "answers".
 
 Question 14
 -----------
+The DNS response provides one answer:
+www.mit.edu: type A, class IN, addr 18.7.22.83
+    Name: www.mit.edu
+    Type: A (Host Address) (1)
+    Class: IN (0x0001)
+    Time to live: 60
+    Data length: 4
+    Address: 18.7.22.83
 
 Question 16
 -----------
+It is sent to 128.238.9.22. This isn't the IP of my local DNS server.
 
 Question 17
 -----------
+It is a type NS query, and doesn't contain any answers.
 
 Question 18
 -----------
+it provides three nameservers:
+mit.edu: type NS, class IN, ns bitsy.mit.edu
+    Name: mit.edu
+    Type: NS (authoritative Name Server) (2)
+    Class: IN (0x0001)
+    Time to live: 20736
+    Data length: 8
+    Name Server: bitsy.mit.edu
+mit.edu: type NS, class IN, ns strawb.mit.edu
+    Name: mit.edu
+    Type: NS (authoritative Name Server) (2)
+    Class: IN (0x0001)
+    Time to live: 20736
+    Data length: 9
+    Name Server: strawb.mit.edu
+mit.edu: type NS, class IN, ns w20ns.mit.edu
+    Name: mit.edu
+    Type: NS (authoritative Name Server) (2)
+    Class: IN (0x0001)
+    Time to live: 20736
+    Data length: 8
+    Name Server: w20ns.mit.edu
+Yes, it also provides their IP addresses in the 'Additional records' section.
+
+bitsy.mit.edu: 18.72.0.3
+strawb.mit.edu: 18.72.0.151
+w20ns.mit.edu: 18.72.0.60
 
 Question 20
 -----------
+The query is sent to 18.72.0.3. This is not my local DNS server, but it is one
+of the MIT nameservers (bitsy.mit.edu).
 
 Question 21
 -----------
+It's a type A query, and does not contain any answers.
 
 Question 22
 -----------
-
+The response provides one query:
+www.aiit.or.kr: type A, class IN, addr 218.36.94.200
+    Name: www.aiit.or.kr
+    Type: A (Host Address) (1)
+    Class: IN (0x0001)
+    Time to live: 3338
+    Data length: 4
+    Address: 218.36.94.200
