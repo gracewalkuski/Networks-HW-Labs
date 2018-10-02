@@ -113,8 +113,8 @@
     Congestion avoidance begins at 0.309 sec, because the shape of the graph
     turns into 'stair steps' where sequence number and time increase at the same
     rate.
-14.
-
+14. There is no slow start shown on this graph, it goes straight to the stair 
+    steps at 4.123s indicating that congestion avoidance has begun.
 
 I am using IPv4 on my Mac. I know this because I have an IPv4 address under
 my network preferences, but no IPv6 address.
